@@ -11,11 +11,13 @@ console.log(typeof adaptive);
 
 console.log(screens.length);
 
-console.log(screenPrice); //"Стоимость верстки экранов" "рублей/долларов/гривен/юани"
+console.log(
+  "Стоимость верстки экранов" + screenPrice + "рублей/долларов/гривен/юани"
+); //"Стоимость верстки экранов" "рублей/долларов/гривен/юани"
 
 console.log(fullPrice); //"Стоимость разработки сайта" "рублей/долларов/гривен/юани"
 
 console.log(screens.toLowerCase());
-console.log(screens.split("ы"));
+console.log(screens.split(", "));
 
 console.log(fullPrice * (rollback / 100)); //"Процент отката посреднику за работу"
