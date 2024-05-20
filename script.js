@@ -9,9 +9,28 @@ let servicePrice1 = +prompt("Сколько это будет стоить?");
 let service2 = prompt("Какой дополнительный тип услуги нужен?");
 let servicePrice2 = +prompt("Сколько это будет стоить?");
 let rollback = 67;
+let allServicePrices;
+let fullPrice;
+let servicePercentPrice;
 
-const schowTypeOf = function (variable) {
+const getAllServicePrices = function () {
+  return servicePrice1 + servicePrice2;
+};
+
+const showTypeOf = function (variable) {
   console.log(variable, typeof variable);
+};
+
+function getFullPrice() {
+  return screenPrice + allServicePrices;
+}
+
+const getServicePercentPrices = function () {
+  return fullPrice - fullPrice * (rollback / 100);
+};
+
+const getTitle = function () {
+  return title.trim()[0].toUpperCase() + title.trim().substring(1).toLowerCase;
 };
 
 const getRollbackMessage = function (price) {
@@ -26,28 +45,14 @@ const getRollbackMessage = function (price) {
   }
 };
 
-function getAllServicePrices() {
-  return servicePrice1 + servicePrice2;
-}
-const allServicePrices = getAllServicePrices(servicePrice1, servicePrice2);
+allServicePrices = getAllServicePrices();
+fullPrice = getFullPrice();
+servicePercentPrice = getServicePercentPrices();
+title = getTitle();
 
-function getFullPrice() {
-  return screenPrice + allServicePrices;
-}
-const fullPrice = getFullPrice(screenPrice, allServicePrices);
-
-function getTitle(title) {
-  return title.trimStart()[0].toUpperCase() + title.substring(1);
-}
-
-function getServicePercentPrices() {
-  return fullPrice - fullPrice * (rollback / 100);
-}
-const servicePercentPrice = getServicePercentPrices();
-
-schowTypeOf(title);
-schowTypeOf(screenPrice);
-schowTypeOf(adaptive);
+showTypeOf(title);
+showTypeOf(screenPrice);
+showTypeOf(adaptive);
 
 console.log(screens);
 console.log(getRollbackMessage(fullPrice));
